@@ -1,6 +1,20 @@
 # Console
 
-A minimal, enterprise-style frontend dashboard built with Next.js 16 and the Untitled UI design system. No authentication or backend—mock data only, ready for future expansion.
+A minimal, enterprise-style frontend dashboard built with **Next.js 16** and the **Untitled UI** design system. No authentication or backend—mock data only, ready for future expansion.
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE.md)
+
+## Table of contents
+
+- [Tech stack](#tech-stack)
+- [Prerequisites](#prerequisites)
+- [Getting started](#getting-started)
+- [Project structure](#project-structure)
+- [Features](#features)
+- [Configuration](#configuration)
+- [Future expansion](#future-expansion)
+- [Contributing](#contributing)
+- [License](#license)
 
 ## Tech stack
 
@@ -110,6 +124,14 @@ The app is set up so you can add:
 - A tables library for orders and other lists
 - Authentication and protected routes
 - Additional pages and layout sections
+
+## Contributing
+
+Contributions are welcome. Please read [CONTRIBUTING.md](CONTRIBUTING.md) for setup, commit message format, and code style.
+
+## License
+
+This project is licensed under the MIT License—see [LICENSE.md](LICENSE.md) for details.
 
 ---
 
