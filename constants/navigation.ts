@@ -5,7 +5,7 @@ import {
   CreditCard02,
   File06,
   HelpCircle,
-  Home01,
+  HomeLine,
   Rocket01,
   Settings01,
   SwitchHorizontal01,
@@ -18,7 +18,7 @@ import type { NavGroup, NavSectionConfig } from "@/types/navigation";
 export type { NavItem, NavGroup, NavSectionConfig } from "@/types/navigation";
 
 export const mainNavItems: NavGroup = [
-  { href: "/dashboard", label: "Dashboard", icon: Home01 },
+  { href: "/dashboard", label: "Dashboard", icon: HomeLine },
   { href: "/orders", label: "Orders", icon: Coins03 },
   { href: "/customers", label: "Customers", icon: Users01 },
 ];
