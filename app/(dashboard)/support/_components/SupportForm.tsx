@@ -51,11 +51,10 @@ export function SupportForm() {
       onSubmit={handleSubmit}
       className="rounded-xl border border-gray-200 bg-primary p-6 shadow-sm"
     >
-      <h2 className="text-base font-semibold text-primary">
-        Ask a question
-      </h2>
+      <h2 className="text-base font-semibold text-primary">Ask a question</h2>
       <p className="mt-1 text-sm text-tertiary">
-        Describe your issue or question and we&apos;ll respond as soon as we can.
+        Describe your issue or question and we&apos;ll respond as soon as we
+        can.
       </p>
 
       <div className="mt-6 flex flex-col gap-4">
@@ -63,7 +62,7 @@ export function SupportForm() {
           label="Subject"
           placeholder="e.g. Billing question, Bug report"
           value={subject}
-          onChange={(e) => setSubject(e.target.value)}
+          onChange={setSubject}
           isRequired
         />
 

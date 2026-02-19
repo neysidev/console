@@ -54,10 +54,7 @@ function SupportCard({
         <h2 className="text-base font-semibold text-primary">{title}</h2>
         <p className="mt-1 text-sm text-tertiary">{description}</p>
       </div>
-      <ArrowUpRight
-        className="size-5 shrink-0 text-tertiary"
-        aria-hidden
-      />
+      <ArrowUpRight className="size-5 shrink-0 text-tertiary" aria-hidden />
     </div>
   );
 
@@ -66,7 +63,12 @@ function SupportCard({
 
   if (external) {
     return (
-      <a href={href} className={className} target="_blank" rel="noopener noreferrer">
+      <a
+        href={href}
+        className={className}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         {content}
       </a>
     );
