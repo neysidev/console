@@ -8,7 +8,7 @@ export const Header = observer(function Header() {
   const { uiStore } = useStores();
 
   return (
-    <header className="flex h-14 shrink-0 items-center justify-between border-b border-[var(--color-border-secondary)] bg-[var(--color-bg-primary)] px-4">
+    <header className="flex h-14 shrink-0 items-center justify-between border-b border-[var(--color-border-secondary)] px-4">
       <button
         type="button"
         onClick={() => uiStore.toggleSidebar()}

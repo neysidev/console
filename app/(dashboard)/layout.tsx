@@ -1,4 +1,4 @@
-import { DashboardLayoutClient } from "@/components/dashboard-layout";
+import { DashboardLayoutClient } from "@/components/layouts";
 
 export default function DashboardLayout({
   children,
