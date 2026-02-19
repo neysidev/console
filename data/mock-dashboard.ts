@@ -22,30 +22,75 @@ export const MOCK_STATS = [
   },
 ];
 
-export const MOCK_USERS = [
+export const TEAM_MEMBER_STATUSES = [
+  "Admin",
+  "Data expert",
+  "Data import",
+  "Viewer",
+  "Editor",
+] as const;
+
+export type TeamMemberStatus = (typeof TEAM_MEMBER_STATUSES)[number];
+
+const STATUS_DOT_COLORS: Record<TeamMemberStatus, string> = {
+  Admin: "text-utility-error-500",
+  "Data expert": "text-utility-brand-500",
+  "Data import": "text-utility-blue-500",
+  Viewer: "text-utility-gray-500",
+  Editor: "text-utility-success-500",
+};
+
+export function getStatusDotColor(status: TeamMemberStatus): string {
+  return STATUS_DOT_COLORS[status] ?? "text-utility-gray-500";
+}
+
+export type TeamMember = {
+  id: string;
+  name: string;
+  email: string;
+  avatar: string;
+  status: TeamMemberStatus;
+  lastActive: string; // ISO date
+  dateAdded: string; // ISO date
+};
+
+// Avatars from https://www.untitledui.com/resources/avatars
+export const MOCK_USERS: TeamMember[] = [
   {
     id: "1",
     name: "Olivia Rhye",
     email: "olivia@example.com",
-    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Olivia",
+    avatar: "https://www.untitledui.com/images/avatars/olivia-rhye",
+    status: "Admin",
+    lastActive: "2025-01-16T10:30:00Z",
+    dateAdded: "2024-11-02T09:00:00Z",
   },
   {
     id: "2",
     name: "Phoenix Baker",
     email: "phoenix@example.com",
-    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Phoenix",
+    avatar: "https://www.untitledui.com/images/avatars/phoenix-baker",
+    status: "Data expert",
+    lastActive: "2025-01-15T14:20:00Z",
+    dateAdded: "2024-10-15T11:00:00Z",
   },
   {
     id: "3",
     name: "Lana Steiner",
     email: "lana@example.com",
-    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Lana",
+    avatar: "https://www.untitledui.com/images/avatars/lana-steiner",
+    status: "Data import",
+    lastActive: "2025-01-14T08:00:00Z",
+    dateAdded: "2024-12-01T08:00:00Z",
   },
   {
     id: "4",
     name: "Demi Wilkinson",
     email: "demi@example.com",
-    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Demi",
+    avatar: "https://www.untitledui.com/images/avatars/demi-wilkinson",
+    status: "Viewer",
+    lastActive: "2025-01-16T07:45:00Z",
+    dateAdded: "2025-01-05T12:00:00Z",
   },
 ];
 

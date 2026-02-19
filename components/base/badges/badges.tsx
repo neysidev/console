@@ -3,7 +3,7 @@
 import type { MouseEventHandler, ReactNode } from "react";
 import Image from "next/image";
 import { X as CloseX } from "@untitledui/icons";
-import { Dot } from "@/components/ui/foundations/dot-icon";
+import { Dot } from "@/components/foundations/dot-icon";
 import { cx } from "@/utils/cx";
 import type {
   BadgeColors,
