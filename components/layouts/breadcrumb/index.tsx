@@ -17,7 +17,7 @@ export function Breadcrumb({
   return (
     <nav
       aria-label="Breadcrumb"
-      className="mb-4 flex flex-wrap items-center gap-1.5 text-sm text-gray-700"
+      className="mb-4 flex flex-wrap items-center gap-1.5 text-xs text-gray-700"
     >
       <BreadcrumbUser username={username} avatar={avatar} />
       <BreadcrumbSegments />
