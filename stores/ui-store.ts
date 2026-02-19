@@ -1,8 +1,9 @@
 import { makeAutoObservable } from "mobx";
+import type { Theme } from "@/types/theme";
+
+export type { Theme } from "@/types/theme";
 
 const THEME_STORAGE_KEY = "theme";
-
-export type Theme = "light" | "dark";
 
 function getStoredTheme(): Theme {
   if (typeof window === "undefined") return "light";

@@ -2,7 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import { NavLink } from "./NavLink";
-import type { NavSectionConfig } from "@/constants/navigation";
+import type { NavSectionConfig } from "@/types/navigation";
 
 type NavSectionProps = {
   section: NavSectionConfig;

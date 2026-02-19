@@ -13,20 +13,9 @@ import {
   Users01,
   Wallet01,
 } from "@untitledui/icons";
+import type { NavGroup, NavSectionConfig } from "@/types/navigation";
 
-export type NavItem = {
-  href: string;
-  label: string;
-  icon?: React.ComponentType<{ className?: string }> | null;
-};
-
-export type NavGroup = NavItem[];
-
-export type NavSectionConfig = {
-  title: string;
-  icon?: React.ComponentType<{ className?: string }>;
-  children: NavItem[];
-};
+export type { NavItem, NavGroup, NavSectionConfig } from "@/types/navigation";
 
 export const mainNavItems: NavGroup = [
   { href: "/dashboard", label: "Dashboard", icon: Home01 },

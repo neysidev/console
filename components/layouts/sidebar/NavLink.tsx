@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { cx } from "@/utils/cx";
-import type { NavItem } from "@/constants/navigation";
+import type { NavItem } from "@/types/navigation";
 
 type NavLinkProps = NavItem & {
   isActive: boolean;

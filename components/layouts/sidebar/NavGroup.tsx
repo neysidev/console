@@ -2,7 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import { NavLink } from "./NavLink";
-import type { NavGroup as NavGroupType } from "@/constants/navigation";
+import type { NavGroup as NavGroupType } from "@/types/navigation";
 
 type NavGroupProps = {
   items: NavGroupType;
