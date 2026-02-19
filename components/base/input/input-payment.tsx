@@ -1,6 +1,6 @@
 "use client";
 
-import { useControlledState } from "@react-stately/utils";
+import { useCallback, useState } from "react";
 import { HintText } from "@/components/base/input/hint-text";
 import type { InputBaseProps } from "@/components/base/input/input";
 import { InputBase, TextField } from "@/components/base/input/input";
@@ -12,6 +12,27 @@ import {
   UnionPayIcon,
   VisaIcon,
 } from "@/components/foundations/payment-icons";
+
+function useControlledState<T>(
+  value: T | undefined,
+  defaultValue: T,
+  onChange?: (value: T) => void
+): [T, (value: T) => void] {
+  const [state, setState] = useState(defaultValue);
+  const isControlled = value !== undefined;
+
+  const setValue = useCallback(
+    (newValue: T) => {
+      if (!isControlled) {
+        setState(newValue);
+      }
+      onChange?.(newValue);
+    },
+    [isControlled, onChange]
+  );
+
+  return [isControlled ? value : state, setValue];
+}
 
 const cardTypes = [
   {

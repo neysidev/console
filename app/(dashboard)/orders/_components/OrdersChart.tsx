@@ -99,8 +99,11 @@ export function OrdersChart() {
                 fontSize: "12px",
               }}
               labelStyle={{ color: "var(--color-gray-700)" }}
-              formatter={(value: number, name: string) => [
-                name === "revenue" ? `$${value}` : value,
+              formatter={(
+                value: number | undefined,
+                name: string | undefined
+              ) => [
+                name === "revenue" ? `$${value ?? 0}` : (value ?? 0),
                 name === "revenue" ? "Revenue" : "Orders",
               ]}
               labelFormatter={(label) => label}
