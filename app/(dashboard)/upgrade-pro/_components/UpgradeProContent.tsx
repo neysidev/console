@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Button } from "react-aria-components";
 import { Input } from "@/components/base/input/input";
+import { AnimatedNumber } from "@/components/ui/AnimatedNumber";
 import { Avatar } from "@/components/ui/Avatar";
 import {
   Rocket01,
@@ -77,12 +78,18 @@ function SummaryCard({
       <div className="mb-4 flex items-center justify-between border-b border-gray-100 pb-3">
         <div>
           <p className="text-sm font-medium text-primary">
-            {seats}x PRO license
+            <AnimatedNumber value={seats} format="integer" className="inline" />
+            x PRO license
           </p>
           <p className="text-xs text-tertiary">{licensePeriod}</p>
         </div>
         <span className="text-sm font-medium text-primary">
-          ${subtotal.toFixed(2)}
+          <AnimatedNumber
+            value={subtotal}
+            format="currency"
+            currency="USD"
+            className="inline"
+          />
         </span>
       </div>
 
@@ -113,24 +120,52 @@ function SummaryCard({
       <div className="space-y-2 border-b border-gray-100 pb-4 text-sm">
         <div className="flex justify-between text-secondary">
           <span>Subtotal</span>
-          <span>${subtotal.toFixed(2)}</span>
+          <span>
+            <AnimatedNumber
+              value={subtotal}
+              format="currency"
+              currency="USD"
+              className="inline"
+            />
+          </span>
         </div>
         {discountAmount > 0 && (
           <div className="flex justify-between text-success-600">
             <span>Discount {ANNUAL_DISCOUNT_PERCENT}%</span>
-            <span>-${discountAmount.toFixed(2)}</span>
+            <span>
+              -
+              <AnimatedNumber
+                value={discountAmount}
+                format="currency"
+                currency="USD"
+                className="inline"
+              />
+            </span>
           </div>
         )}
         <div className="flex justify-between text-secondary">
           <span>GST {GST_PERCENT}%</span>
-          <span>+${gst.toFixed(2)}</span>
+          <span>
+            +
+            <AnimatedNumber
+              value={gst}
+              format="currency"
+              currency="USD"
+              className="inline"
+            />
+          </span>
         </div>
       </div>
 
       <div className="mb-6 flex items-center justify-between">
         <span className="text-sm font-medium text-primary">Due today</span>
         <span className="text-xl font-semibold text-primary">
-          ${totalDue.toFixed(2)}
+          <AnimatedNumber
+            value={totalDue}
+            format="currency"
+            currency="USD"
+            className="inline"
+          />
         </span>
       </div>
 
@@ -179,7 +214,11 @@ export function UpgradeProContent() {
                 className="flex min-w-12 items-center justify-center border-x border-gray-200 px-3 py-2 text-sm font-medium text-primary"
                 aria-live="polite"
               >
-                {seats}
+                <AnimatedNumber
+                  value={seats}
+                  format="integer"
+                  className="inline"
+                />
               </span>
               <Button
                 onPress={() => setSeats((s) => s + 1)}

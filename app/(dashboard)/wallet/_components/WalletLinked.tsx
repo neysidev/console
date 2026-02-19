@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { Bank, CreditCard02, ChevronRight } from "@untitledui/icons";
+import { AnimatedNumber } from "@/components/ui/AnimatedNumber";
 import { MOCK_LINKED_COUNTS } from "@/data/mock-wallet";
 
 const cardClass =
@@ -22,7 +23,12 @@ export function WalletLinked() {
             <div>
               <p className="text-sm font-medium text-primary">Bank accounts</p>
               <p className="text-xs text-tertiary">
-                {MOCK_LINKED_COUNTS.bankAccounts} account
+                <AnimatedNumber
+                  value={MOCK_LINKED_COUNTS.bankAccounts}
+                  format="integer"
+                  className="inline"
+                />{" "}
+                account
                 {MOCK_LINKED_COUNTS.bankAccounts !== 1 ? "s" : ""} linked
               </p>
             </div>
@@ -37,7 +43,12 @@ export function WalletLinked() {
             <div>
               <p className="text-sm font-medium text-primary">Cards</p>
               <p className="text-xs text-tertiary">
-                {MOCK_LINKED_COUNTS.cards} card
+                <AnimatedNumber
+                  value={MOCK_LINKED_COUNTS.cards}
+                  format="integer"
+                  className="inline"
+                />{" "}
+                card
                 {MOCK_LINKED_COUNTS.cards !== 1 ? "s" : ""} linked
               </p>
             </div>

@@ -30,12 +30,14 @@ export function getOrderStats(orders: Order[]) {
   const totalRevenue = amounts.reduce((a, b) => a + b, 0);
   const avgOrder = amounts.length ? totalRevenue / amounts.length : 0;
   return {
-    totalRevenue: `$${totalRevenue.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`,
+    totalRevenue,
     totalOrders: orders.length,
     pendingCount: pending.length,
-    avgOrderValue: `$${avgOrder.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`,
+    avgOrderValue: avgOrder,
     revenueChange: "+12.5%",
+    revenueChangeValue: 12.5,
     ordersChange: "+8.2%",
+    ordersChangeValue: 8.2,
   };
 }
 

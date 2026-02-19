@@ -2,6 +2,7 @@
 
 import { TrendUp01 } from "@untitledui/icons";
 import { BadgeWithIcon } from "@/components/base/badges/badges";
+import { AnimatedNumber } from "@/components/ui/AnimatedNumber";
 import type { Customer } from "@/data/mock-customers";
 import { getCustomerStats } from "@/data/mock-customers";
 
@@ -22,16 +23,25 @@ export function CustomersStats({ customers }: CustomersStatsProps) {
           Total customers
         </p>
         <div className="mt-3 flex items-end justify-between gap-2">
-          <p className="text-xl font-semibold tabular-nums text-primary">
-            {stats.totalCustomers}
-          </p>
+          <AnimatedNumber
+            value={stats.totalCustomers}
+            format="integer"
+            className="text-xl font-semibold text-primary"
+          />
           <BadgeWithIcon
             size="sm"
             type="color"
             color="success"
             iconLeading={TrendUp01}
           >
-            {stats.customersChange}
+            <span className="inline">
+              +
+              <AnimatedNumber
+                value={stats.customersChangeValue / 100}
+                format="percent"
+                className="inline"
+              />
+            </span>
           </BadgeWithIcon>
         </div>
         <p className="mt-1 text-xs text-tertiary">vs last period</p>
@@ -41,9 +51,11 @@ export function CustomersStats({ customers }: CustomersStatsProps) {
         <p className="text-xs font-medium uppercase tracking-wide text-tertiary">
           Active
         </p>
-        <p className="mt-3 text-xl font-semibold tabular-nums text-primary">
-          {stats.activeCount}
-        </p>
+        <AnimatedNumber
+          value={stats.activeCount}
+          format="integer"
+          className="mt-3 block text-xl font-semibold text-primary"
+        />
         <p className="mt-1 text-xs text-tertiary">
           Customers with recent activity
         </p>
@@ -53,9 +65,11 @@ export function CustomersStats({ customers }: CustomersStatsProps) {
         <p className="text-xs font-medium uppercase tracking-wide text-tertiary">
           New this month
         </p>
-        <p className="mt-3 text-xl font-semibold tabular-nums text-primary">
-          {stats.newThisMonth}
-        </p>
+        <AnimatedNumber
+          value={stats.newThisMonth}
+          format="integer"
+          className="mt-3 block text-xl font-semibold text-primary"
+        />
         <p className="mt-1 text-xs text-tertiary">Signed up in current month</p>
       </div>
 
@@ -63,9 +77,12 @@ export function CustomersStats({ customers }: CustomersStatsProps) {
         <p className="text-xs font-medium uppercase tracking-wide text-tertiary">
           Avg. customer value
         </p>
-        <p className="mt-3 text-xl font-semibold tabular-nums text-primary">
-          {stats.avgCustomerValue}
-        </p>
+        <AnimatedNumber
+          value={stats.avgCustomerValue}
+          format="currency"
+          currency="USD"
+          className="mt-3 block text-xl font-semibold text-primary"
+        />
         <p className="mt-1 text-xs text-tertiary">
           Lifetime value per customer
         </p>

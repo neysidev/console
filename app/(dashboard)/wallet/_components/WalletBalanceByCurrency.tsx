@@ -1,5 +1,6 @@
 "use client";
 
+import { AnimatedNumber } from "@/components/ui/AnimatedNumber";
 import { MOCK_WALLET_BALANCES } from "@/data/mock-wallet";
 
 export function WalletBalanceByCurrency() {
@@ -18,20 +19,24 @@ export function WalletBalanceByCurrency() {
               <p className="text-xs font-medium uppercase tracking-wide text-tertiary">
                 {currency}
               </p>
-              <p className="mt-2 text-lg font-semibold tabular-nums text-primary">
+              <p className="mt-2 text-lg font-semibold text-primary">
                 {symbol}
-                {available.toLocaleString("en-US", {
-                  minimumFractionDigits: 2,
-                  maximumFractionDigits: 2,
-                })}
+                <AnimatedNumber
+                  value={available}
+                  format="decimal"
+                  minimumFractionDigits={2}
+                  maximumFractionDigits={2}
+                />
               </p>
               {pending > 0 && (
                 <p className="mt-1 text-xs text-tertiary">
                   {symbol}
-                  {pending.toLocaleString("en-US", {
-                    minimumFractionDigits: 2,
-                    maximumFractionDigits: 2,
-                  })}{" "}
+                  <AnimatedNumber
+                    value={pending}
+                    format="decimal"
+                    minimumFractionDigits={2}
+                    maximumFractionDigits={2}
+                  />{" "}
                   pending
                 </p>
               )}

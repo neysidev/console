@@ -50,6 +50,7 @@ export function ForeignCurrencyAccountList({
                 id={col.id}
                 label={col.label}
                 className={col.id === "actions" ? "w-12 min-w-12" : ""}
+                isRowHeader={col.id === "account"}
               />
             )}
           </Table.Header>

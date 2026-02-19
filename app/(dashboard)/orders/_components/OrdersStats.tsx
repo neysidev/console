@@ -2,6 +2,7 @@
 
 import { TrendUp01 } from "@untitledui/icons";
 import { BadgeWithIcon } from "@/components/base/badges/badges";
+import { AnimatedNumber } from "@/components/ui/AnimatedNumber";
 import type { Order } from "@/data/mock-orders";
 import { getOrderStats } from "@/data/mock-orders";
 
@@ -22,16 +23,26 @@ export function OrdersStats({ orders }: OrdersStatsProps) {
           Total revenue
         </p>
         <div className="mt-3 flex items-end justify-between gap-2">
-          <p className="text-xl font-semibold tabular-nums text-primary">
-            {stats.totalRevenue}
-          </p>
+          <AnimatedNumber
+            value={stats.totalRevenue}
+            format="currency"
+            currency="USD"
+            className="text-xl font-semibold text-primary"
+          />
           <BadgeWithIcon
             size="sm"
             type="color"
             color="success"
             iconLeading={TrendUp01}
           >
-            {stats.revenueChange}
+            <span className="inline">
+              +
+              <AnimatedNumber
+                value={stats.revenueChangeValue / 100}
+                format="percent"
+                className="inline"
+              />
+            </span>
           </BadgeWithIcon>
         </div>
         <p className="mt-1 text-xs text-tertiary">vs last period</p>
@@ -42,16 +53,25 @@ export function OrdersStats({ orders }: OrdersStatsProps) {
           Orders
         </p>
         <div className="mt-3 flex items-end justify-between gap-2">
-          <p className="text-xl font-semibold tabular-nums text-primary">
-            {stats.totalOrders}
-          </p>
+          <AnimatedNumber
+            value={stats.totalOrders}
+            format="integer"
+            className="text-xl font-semibold text-primary"
+          />
           <BadgeWithIcon
             size="sm"
             type="color"
             color="success"
             iconLeading={TrendUp01}
           >
-            {stats.ordersChange}
+            <span className="inline">
+              +
+              <AnimatedNumber
+                value={stats.ordersChangeValue / 100}
+                format="percent"
+                className="inline"
+              />
+            </span>
           </BadgeWithIcon>
         </div>
         <p className="mt-1 text-xs text-tertiary">vs last period</p>
@@ -61,9 +81,11 @@ export function OrdersStats({ orders }: OrdersStatsProps) {
         <p className="text-xs font-medium uppercase tracking-wide text-tertiary">
           Pending
         </p>
-        <p className="mt-3 text-xl font-semibold tabular-nums text-primary">
-          {stats.pendingCount}
-        </p>
+        <AnimatedNumber
+          value={stats.pendingCount}
+          format="integer"
+          className="mt-3 block text-xl font-semibold text-primary"
+        />
         <p className="mt-1 text-xs text-tertiary">
           Awaiting fulfillment or payment
         </p>
@@ -73,9 +95,12 @@ export function OrdersStats({ orders }: OrdersStatsProps) {
         <p className="text-xs font-medium uppercase tracking-wide text-tertiary">
           Avg. order value
         </p>
-        <p className="mt-3 text-xl font-semibold tabular-nums text-primary">
-          {stats.avgOrderValue}
-        </p>
+        <AnimatedNumber
+          value={stats.avgOrderValue}
+          format="currency"
+          currency="USD"
+          className="mt-3 block text-xl font-semibold text-primary"
+        />
         <p className="mt-1 text-xs text-tertiary">Excluding cancelled</p>
       </div>
     </section>

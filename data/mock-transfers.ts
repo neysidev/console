@@ -58,9 +58,12 @@ export function getTransferStats(transfers: Transfer[]) {
     completedCount: completed.length,
     pendingCount: pending.length,
     failedCount: failed.length,
-    totalSent: `$${totalSent.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`,
-    sentThisMonth: `$${thisMonthAmount.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`,
+    totalSent,
+    totalSentFormatted: `$${totalSent.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`,
+    sentThisMonth: thisMonthAmount,
+    sentThisMonthFormatted: `$${thisMonthAmount.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`,
     sentChange: "+5.2%",
+    sentChangeValue: 5.2,
   };
 }
 

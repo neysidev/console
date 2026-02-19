@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@number-flow/react':
+        specifier: ^0.5.12
+        version: 0.5.12(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       '@tailwindcss/postcss':
         specifier: ^4.2.0
         version: 4.2.0
@@ -493,6 +496,12 @@ packages:
   '@nolyfill/is-core-module@1.0.39':
     resolution: {integrity: sha512-nn5ozdjYQpUCZlWGuxcJY/KpxkWQs4DcbMCmKojjyrYDEAGy4Ce19NN4v5MduafTwJlbKc99UA8YhSVqq9yPZA==}
     engines: {node: '>=12.4.0'}
+
+  '@number-flow/react@0.5.12':
+    resolution: {integrity: sha512-34Kt3kd7kC5V3BqrDmxCJsqZlF43NFuOAUd8XZVjR75IJ1JPsgDMYArywqOHJm4gy/ZGzWQGFPxfYSSbscvppA==}
+    peerDependencies:
+      react: ^18 || ^19
+      react-dom: ^18 || ^19
 
   '@react-aria/autocomplete@3.0.0-rc.5':
     resolution: {integrity: sha512-qcGr/ZlSJxw78QtXB29MnvCwGZKlJ5FGfSICjaX/KIg4ONGFR/u4QjP/axA+vhlPa9Ik7BNeikWQriTcYrkbhw==}
@@ -1826,6 +1835,9 @@ packages:
       jiti:
         optional: true
 
+  esm-env@1.2.2:
+    resolution: {integrity: sha512-Epxrv+Nr/CaL4ZcFGPJIYLWFom+YeV1DqMLHJoEd9SYRxNbaFruBwfEX/kkHUJf55j2+TUbmDcmuilbP1TmXHA==}
+
   espree@10.4.0:
     resolution: {integrity: sha512-j6PAQ2uUr79PZhBjP5C5fhl8e39FmRnOjsD5lGnWrFU8i2G776tBK7+nP8KuQUTTyAZUwfQqXAgrVH5MbH9CYQ==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
@@ -2381,6 +2393,9 @@ packages:
 
   nprogress@0.2.0:
     resolution: {integrity: sha512-I19aIingLgR1fmhftnbWWO3dXc0hSxqHQHQb3H8m+K3TnEn/iSeTZZOyvKXWqQESMwuUVnatlCnZdLBZZt2VSA==}
+
+  number-flow@0.5.10:
+    resolution: {integrity: sha512-Ss6fU7zZgfAlhT4KFcUVOafStQVHs22xTx7/Fm6nj9j9WUREYlQpBgFX+vzdnB2PpGPTrtdGZPJou6Yyu/uDeA==}
 
   object-assign@4.1.1:
     resolution: {integrity: sha512-rJgTQnkUnH1sFw8yT6VSU3zD3sWmu6sZhIseY8VX+GRu3P6F7Fu+JNDoXfklElbLJSnc3FUQHVe4cU5hj+BcUg==}
@@ -3235,6 +3250,13 @@ snapshots:
       fastq: 1.20.1
 
   '@nolyfill/is-core-module@1.0.39': {}
+
+  '@number-flow/react@0.5.12(react-dom@19.2.3(react@19.2.3))(react@19.2.3)':
+    dependencies:
+      esm-env: 1.2.2
+      number-flow: 0.5.10
+      react: 19.2.3
+      react-dom: 19.2.3(react@19.2.3)
 
   '@react-aria/autocomplete@3.0.0-rc.5(react-dom@19.2.3(react@19.2.3))(react@19.2.3)':
     dependencies:
@@ -5148,6 +5170,8 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
+  esm-env@1.2.2: {}
+
   espree@10.4.0:
     dependencies:
       acorn: 8.15.0
@@ -5660,6 +5684,10 @@ snapshots:
   node-releases@2.0.27: {}
 
   nprogress@0.2.0: {}
+
+  number-flow@0.5.10:
+    dependencies:
+      esm-env: 1.2.2
 
   object-assign@4.1.1: {}
 

@@ -1,26 +1,9 @@
 "use client";
 
+import { AnimatedNumber } from "@/components/ui/AnimatedNumber";
 import { MOCK_WALLET_TOTAL } from "@/data/mock-wallet";
 
 const total = MOCK_WALLET_TOTAL.available + MOCK_WALLET_TOTAL.pending;
-const formattedTotal = new Intl.NumberFormat("en-US", {
-  style: "currency",
-  currency: "USD",
-  minimumFractionDigits: 2,
-  maximumFractionDigits: 2,
-}).format(total);
-const formattedAvailable = new Intl.NumberFormat("en-US", {
-  style: "currency",
-  currency: "USD",
-  minimumFractionDigits: 2,
-  maximumFractionDigits: 2,
-}).format(MOCK_WALLET_TOTAL.available);
-const formattedPending = new Intl.NumberFormat("en-US", {
-  style: "currency",
-  currency: "USD",
-  minimumFractionDigits: 2,
-  maximumFractionDigits: 2,
-}).format(MOCK_WALLET_TOTAL.pending);
 
 export function WalletBalanceCard() {
   return (
@@ -28,21 +11,30 @@ export function WalletBalanceCard() {
       <p className="text-xs font-medium uppercase tracking-wide text-tertiary">
         Total balance
       </p>
-      <p className="mt-2 text-2xl font-semibold tabular-nums text-primary sm:text-3xl">
-        {formattedTotal}
-      </p>
+      <AnimatedNumber
+        value={total}
+        format="currency"
+        currency="USD"
+        className="mt-2 block text-2xl font-semibold text-primary sm:text-3xl"
+      />
       <div className="mt-4 flex flex-wrap gap-6 border-t border-gray-100 pt-4">
         <div>
           <p className="text-xs text-tertiary">Available</p>
-          <p className="mt-0.5 text-sm font-medium tabular-nums text-primary">
-            {formattedAvailable}
-          </p>
+          <AnimatedNumber
+            value={MOCK_WALLET_TOTAL.available}
+            format="currency"
+            currency="USD"
+            className="mt-0.5 block text-sm font-medium text-primary"
+          />
         </div>
         <div>
           <p className="text-xs text-tertiary">Pending</p>
-          <p className="mt-0.5 text-sm font-medium tabular-nums text-primary">
-            {formattedPending}
-          </p>
+          <AnimatedNumber
+            value={MOCK_WALLET_TOTAL.pending}
+            format="currency"
+            currency="USD"
+            className="mt-0.5 block text-sm font-medium text-primary"
+          />
         </div>
       </div>
     </div>

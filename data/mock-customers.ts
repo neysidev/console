@@ -33,9 +33,10 @@ export function getCustomerStats(customers: Customer[]) {
     totalCustomers: customers.length,
     activeCount: active.length,
     newThisMonth: newThisMonth.length,
-    avgCustomerValue: `$${avgSpent.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`,
+    avgCustomerValue: avgSpent,
     totalRevenueChange: "+8.2%",
     customersChange: "+12.4%",
+    customersChangeValue: 12.4,
   };
 }
 

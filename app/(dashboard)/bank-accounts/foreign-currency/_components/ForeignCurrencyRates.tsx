@@ -1,6 +1,7 @@
 "use client";
 
 import { TrendDown01, TrendUp01 } from "@untitledui/icons";
+import { AnimatedNumber } from "@/components/ui/AnimatedNumber";
 import { MOCK_EXCHANGE_RATES } from "@/data/mock-bank-accounts";
 
 export function ForeignCurrencyRates() {
@@ -13,7 +14,14 @@ export function ForeignCurrencyRates() {
         {MOCK_EXCHANGE_RATES.map(({ currency, rate, change }) => (
           <div key={currency} className="flex items-center gap-2">
             <span className="text-sm font-medium text-primary">
-              1 {currency} = ${rate.toFixed(4)}
+              1 {currency} = $
+              <AnimatedNumber
+                value={rate}
+                format="decimal"
+                minimumFractionDigits={4}
+                maximumFractionDigits={4}
+                className="inline"
+              />
             </span>
             {change !== 0 && (
               <span
@@ -27,7 +35,11 @@ export function ForeignCurrencyRates() {
                   <TrendDown01 className="size-3.5" />
                 )}
                 {change > 0 ? "+" : ""}
-                {change}%
+                <AnimatedNumber
+                  value={Math.abs(change) / 100}
+                  format="percent"
+                  className="inline"
+                />
               </span>
             )}
           </div>

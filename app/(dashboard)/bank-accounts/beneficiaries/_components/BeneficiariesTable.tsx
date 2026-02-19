@@ -93,6 +93,7 @@ export function BeneficiariesTable({ beneficiaries }: BeneficiariesTableProps) {
                   id={col.id}
                   label={col.label}
                   className={col.id === "actions" ? "w-12 min-w-12" : ""}
+                  isRowHeader={col.id === "name"}
                 />
               )}
             </Table.Header>

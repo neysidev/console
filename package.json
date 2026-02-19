@@ -12,6 +12,7 @@
     "prepare": "husky"
   },
   "dependencies": {
+    "@number-flow/react": "^0.5.12",
     "@tailwindcss/postcss": "^4.2.0",
     "@untitledui/icons": "^0.0.21",
     "mobx": "^6.15.0",

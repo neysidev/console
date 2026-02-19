@@ -211,6 +211,7 @@ export function TransactionsTable({ transactions }: TransactionsTableProps) {
                   label={column.label}
                   allowsSorting={column.allowsSorting}
                   className={column.id === "actions" ? "w-12 min-w-12" : ""}
+                  isRowHeader={column.id === "description"}
                 />
               )}
             </Table.Header>
