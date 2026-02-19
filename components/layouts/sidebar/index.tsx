@@ -20,10 +20,13 @@ export const Sidebar = observer(function Sidebar() {
   if (!uiStore.sidebarOpen) return null;
 
   return (
-    <aside className="flex w-64 flex-col px-2 py-6" aria-label="Sidebar">
+    <aside
+      className="flex h-full w-64 min-h-0 flex-col px-2 py-6"
+      aria-label="Sidebar"
+    >
       <SidebarLogo />
 
-      <nav className="flex flex-1 flex-col gap-0.5 overflow-y-auto p-2">
+      <nav className="flex min-h-0 flex-1 flex-col gap-0.5 overflow-y-auto p-2">
         <NavGroup items={mainNavItems} />
         <Divider />
 
