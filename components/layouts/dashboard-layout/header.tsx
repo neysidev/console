@@ -8,11 +8,11 @@ export const Header = observer(function Header() {
   const { uiStore } = useStores();
 
   return (
-    <header className="flex h-14 shrink-0 items-center justify-between border-b border-[var(--color-border-secondary)] px-4">
+    <header className="flex h-14 shrink-0 items-center justify-between border-b border-border-secondary px-4">
       <button
         type="button"
         onClick={() => uiStore.toggleSidebar()}
-        className="rounded p-1.5 text-[var(--color-fg-secondary)] hover:bg-[var(--color-bg-secondary)] hover:text-[var(--color-fg-primary)] md:hidden"
+        className="rounded p-1.5 text-fg-secondary hover:bg-bg-secondary hover:text-fg-primary md:hidden"
         aria-label="Toggle sidebar"
       >
         <Menu01 className="size-5" />

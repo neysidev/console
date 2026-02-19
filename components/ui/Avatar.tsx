@@ -18,7 +18,7 @@ export function Avatar({
 
   return (
     <span
-      className={`inline-flex size-6 shrink-0 items-center justify-center overflow-hidden bg-[var(--color-avatar-bg)] text-[var(--color-text-primary)] ${shapeClass} ${className}`}
+      className={`inline-flex size-6 shrink-0 items-center justify-center overflow-hidden bg-avatar-bg text-text-primary ${shapeClass} ${className}`}
       aria-hidden
     >
       {src ? (
