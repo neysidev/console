@@ -45,12 +45,14 @@ function SummaryCard({
   const totalDue = afterDiscount + gst;
 
   return (
-    <div className="rounded-xl border border-gray-200 bg-primary p-6 shadow-sm">
+    <div className="rounded-xl border border-gray-200 bg-primary p-6 shadow-sm dark:border-gray-800 dark:bg-gray-900">
       <div className="mb-6 flex items-center justify-between gap-2">
-        <h2 className="text-lg font-semibold text-primary">Summary</h2>
+        <h2 className="text-lg font-semibold text-primary dark:text-white">
+          Summary
+        </h2>
         <div className="flex items-center gap-2">
           <Button
-            className="inline-flex cursor-pointer items-center gap-1.5 rounded-lg border border-gray-300 bg-primary px-2.5 py-1.5 text-xs font-medium text-primary shadow-xs outline-none transition-colors hover:bg-secondary focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+            className="inline-flex cursor-pointer items-center gap-1.5 rounded-lg border border-gray-300 bg-primary px-2.5 py-1.5 text-xs font-medium text-primary shadow-xs outline-none transition-colors hover:bg-secondary focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 dark:border-gray-800 dark:bg-gray-900 dark:text-gray-500"
             aria-label="Upgrade to PRO"
           >
             <Rocket01 className="size-3.5" aria-hidden />
@@ -64,26 +66,35 @@ function SummaryCard({
         </div>
       </div>
 
-      <div className="mb-6 flex items-center gap-3 rounded-lg border border-gray-200 bg-secondary p-3">
-        <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-primary text-lg font-semibold text-primary shadow-xs">
+      <div className="mb-6 flex items-center gap-3 rounded-lg border border-gray-200 bg-secondary p-3 dark:border-gray-800 dark:bg-gray-900">
+        <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-primary text-lg font-semibold text-primary shadow-xs dark:bg-gray-900 dark:text-gray-500">
           V
         </div>
         <div className="min-w-0 flex-1">
-          <p className="text-sm font-medium text-primary">Voxel Labs</p>
-          <p className="truncate text-xs text-tertiary">admin@voxellabs.com</p>
+          <p className="text-sm font-medium text-primary dark:text-white">
+            Voxel Labs
+          </p>
+          <p className="truncate text-xs text-tertiary dark:text-gray-500">
+            admin@voxellabs.com
+          </p>
         </div>
-        <ChevronDown className="size-4 shrink-0 text-tertiary" aria-hidden />
+        <ChevronDown
+          className="size-4 shrink-0 text-tertiary dark:text-gray-500"
+          aria-hidden
+        />
       </div>
 
-      <div className="mb-4 flex items-center justify-between border-b border-gray-100 pb-3">
+      <div className="mb-4 flex items-center justify-between border-b border-gray-100 dark:border-gray-800 pb-3">
         <div>
-          <p className="text-sm font-medium text-primary">
+          <p className="text-sm font-medium text-primary dark:text-white">
             <AnimatedNumber value={seats} format="integer" className="inline" />
             x PRO license
           </p>
-          <p className="text-xs text-tertiary">{licensePeriod}</p>
+          <p className="text-xs text-tertiary dark:text-gray-500">
+            {licensePeriod}
+          </p>
         </div>
-        <span className="text-sm font-medium text-primary">
+        <span className="text-sm font-medium text-primary dark:text-white">
           <AnimatedNumber
             value={subtotal}
             format="currency"
@@ -94,7 +105,7 @@ function SummaryCard({
       </div>
 
       <div className="mb-4">
-        <label className="mb-1.5 block text-xs font-medium text-secondary">
+        <label className="mb-1.5 block text-xs font-medium text-secondary dark:text-gray-500">
           Discount code
         </label>
         <div className="relative">
@@ -102,7 +113,7 @@ function SummaryCard({
             type="text"
             value={discountCode}
             onChange={(e) => setDiscountCode(e.target.value)}
-            className="w-full rounded-lg border border-gray-300 bg-primary px-3 py-2 pr-9 text-sm text-primary outline-none transition-colors placeholder:text-placeholder focus:ring-2 focus:ring-primary"
+            className="w-full rounded-lg border border-gray-300 bg-primary px-3 py-2 pr-9 text-sm text-primary outline-none transition-colors placeholder:text-placeholder focus:ring-2 focus:ring-primary dark:border-gray-800 dark:bg-gray-900 dark:text-gray-500   "
             placeholder="Enter code"
             aria-label="Discount code"
           />
@@ -117,7 +128,7 @@ function SummaryCard({
         </div>
       </div>
 
-      <div className="space-y-2 border-b border-gray-100 pb-4 text-sm">
+      <div className="space-y-2 border-b border-gray-100 dark:border-gray-800 pb-4 text-sm">
         <div className="flex justify-between text-secondary">
           <span>Subtotal</span>
           <span>
@@ -187,31 +198,33 @@ export function UpgradeProContent() {
     <div className="grid gap-8 lg:grid-cols-[1fr_380px]">
       <div className="min-w-0 space-y-8">
         <div>
-          <h1 className="text-2xl font-semibold tracking-tight text-primary">
+          <h1 className="text-2xl font-semibold tracking-tight text-primary dark:text-white">
             Upgrade to PRO
           </h1>
         </div>
 
         <section className="space-y-6">
-          <h2 className="text-lg font-semibold text-primary">Plan details</h2>
+          <h2 className="text-lg font-semibold text-primary dark:text-white">
+            Plan details
+          </h2>
 
           <div className="flex flex-col gap-1.5">
-            <label className="text-sm font-medium text-secondary">
+            <label className="text-sm font-medium text-secondary dark:text-gray-500">
               Number of seats
             </label>
-            <p className="text-sm text-tertiary">
+            <p className="text-sm text-tertiary dark:text-gray-500">
               Select how many seats you need.
             </p>
-            <div className="flex w-fit items-center gap-0 rounded-lg border border-gray-300 bg-primary shadow-xs ring-1 ring-primary ring-inset">
+            <div className="flex w-fit items-center gap-0 rounded-lg border border-gray-300 bg-primary shadow-xs ring-1 ring-primary ring-inset dark:border-gray-800 dark:bg-gray-900 dark:text-gray-500 dark:ring-gray-800">
               <Button
                 onPress={() => setSeats((s) => Math.max(1, s - 1))}
-                className="flex size-10 cursor-pointer items-center justify-center rounded-l-lg text-tertiary transition-colors hover:bg-secondary hover:text-primary focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-inset"
+                className="flex size-10 cursor-pointer items-center justify-center rounded-l-lg text-tertiary transition-colors hover:bg-secondary hover:text-primary focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-inset dark:text-gray-500"
                 aria-label="Decrease seats"
               >
                 −
               </Button>
               <span
-                className="flex min-w-12 items-center justify-center border-x border-gray-200 px-3 py-2 text-sm font-medium text-primary"
+                className="flex min-w-12 items-center justify-center border-x border-gray-200 px-3 py-2 text-sm font-medium text-primary dark:border-gray-800 dark:text-gray-500"
                 aria-live="polite"
               >
                 <AnimatedNumber
@@ -222,7 +235,7 @@ export function UpgradeProContent() {
               </span>
               <Button
                 onPress={() => setSeats((s) => s + 1)}
-                className="flex size-10 cursor-pointer items-center justify-center rounded-r-lg text-tertiary transition-colors hover:bg-secondary hover:text-primary focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-inset"
+                className="flex size-10 cursor-pointer items-center justify-center rounded-r-lg text-tertiary transition-colors hover:bg-secondary hover:text-primary focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-inset dark:text-gray-500"
                 aria-label="Increase seats"
               >
                 +
@@ -231,14 +244,14 @@ export function UpgradeProContent() {
           </div>
 
           <div className="flex flex-col gap-3">
-            <label className="text-sm font-medium text-secondary">
+            <label className="text-sm font-medium text-secondary dark:text-gray-500">
               Billing cycle
             </label>
-            <p className="text-sm text-tertiary">
+            <p className="text-sm text-tertiary dark:text-gray-500">
               Pay annually for a 20% discount.
             </p>
             <div className="flex flex-col gap-2">
-              <label className="flex cursor-pointer items-start gap-3 rounded-lg border border-gray-200 bg-primary p-4 shadow-xs transition-colors has-checked:border-primary has-checked:ring-2 has-checked:ring-primary has-checked:ring-offset-2">
+              <label className="flex cursor-pointer items-start gap-3 rounded-lg border border-gray-200 bg-primary p-4 shadow-xs transition-colors has-checked:border-primary has-checked:ring-2 has-checked:ring-primary has-checked:ring-offset-2 dark:border-gray-800 dark:bg-gray-900 dark:text-gray-500">
                 <input
                   type="radio"
                   name="billing"
@@ -248,15 +261,15 @@ export function UpgradeProContent() {
                   className="mt-0.5 size-4 border-gray-300 text-primary focus:ring-primary"
                 />
                 <div>
-                  <span className="text-sm font-medium text-primary">
+                  <span className="text-sm font-medium text-primary dark:text-white">
                     Pay monthly
                   </span>
-                  <span className="ml-1 text-sm text-tertiary">
+                  <span className="ml-1 text-sm text-tertiary dark:text-gray-500">
                     $10 per seat / month
                   </span>
                 </div>
               </label>
-              <label className="flex cursor-pointer items-start gap-3 rounded-lg border border-gray-200 bg-primary p-4 shadow-xs transition-colors has-checked:border-primary has-checked:ring-2 has-checked:ring-primary has-checked:ring-offset-2">
+              <label className="flex cursor-pointer items-start gap-3 rounded-lg border border-gray-200 bg-primary p-4 shadow-xs transition-colors has-checked:border-primary has-checked:ring-2 has-checked:ring-primary has-checked:ring-offset-2 dark:border-gray-800 dark:bg-gray-900 dark:text-gray-500">
                 <input
                   type="radio"
                   name="billing"
@@ -266,14 +279,14 @@ export function UpgradeProContent() {
                   className="mt-0.5 size-4 border-gray-300 text-primary focus:ring-primary"
                 />
                 <div>
-                  <span className="text-sm font-medium text-primary">
+                  <span className="text-sm font-medium text-primary dark:text-white">
                     Pay annually
                   </span>
                   <span className="ml-1 inline-flex items-center gap-1.5 text-sm">
-                    <span className="text-tertiary">
+                    <span className="text-tertiary dark:text-gray-500">
                       $8.33 per seat / month
                     </span>
-                    <span className="rounded bg-success-50 px-1.5 py-0.5 text-xs font-medium text-success-700">
+                    <span className="rounded bg-success-50 px-1.5 py-0.5 text-xs font-medium text-success-700 dark:text-success-700">
                       Save 20%
                     </span>
                   </span>
@@ -284,7 +297,7 @@ export function UpgradeProContent() {
         </section>
 
         <section className="space-y-6">
-          <h2 className="text-lg font-semibold text-primary">
+          <h2 className="text-lg font-semibold text-primary dark:text-white">
             Invoice details
           </h2>
 
@@ -297,7 +310,7 @@ export function UpgradeProContent() {
               hint="Invoices will be sent to this email address."
               isRequired
             />
-            <p className="-mt-2 text-xs font-medium text-primary">
+            <p className="-mt-2 text-xs font-medium text-primary dark:text-white">
               <button
                 type="button"
                 className="outline-none hover:underline focus-visible:underline"
@@ -312,13 +325,13 @@ export function UpgradeProContent() {
               isRequired
             />
             <div className="flex flex-col gap-1.5">
-              <label className="text-sm font-medium text-secondary">
+              <label className="text-sm font-medium text-secondary dark:text-gray-500">
                 Country <span className="text-brand-tertiary">*</span>
               </label>
               <div className="relative">
-                <Globe01 className="absolute left-3 top-1/2 size-5 -translate-y-1/2 text-fg-quaternary" />
+                <Globe01 className="absolute left-3 top-1/2 size-5 -translate-y-1/2 text-fg-quaternary dark:text-gray-500" />
                 <select
-                  className="w-full appearance-none rounded-lg border border-gray-300 bg-primary py-2 pl-10 pr-8 text-sm text-primary outline-none transition-colors focus:ring-2 focus:ring-primary"
+                  className="w-full appearance-none rounded-lg border border-gray-300 bg-primary py-2 pl-10 pr-8 text-sm text-primary outline-none transition-colors focus:ring-2 focus:ring-primary dark:border-gray-800 dark:bg-gray-900 dark:text-gray-500"
                   defaultValue="CH"
                   aria-label="Country"
                 >
@@ -329,7 +342,7 @@ export function UpgradeProContent() {
                   <option value="FR">France</option>
                 </select>
                 <ChevronDown
-                  className="pointer-events-none absolute right-3 top-1/2 size-4 -translate-y-1/2 text-tertiary"
+                  className="pointer-events-none absolute right-3 top-1/2 size-4 -translate-y-1/2 text-tertiary dark:text-gray-500"
                   aria-hidden
                 />
               </div>

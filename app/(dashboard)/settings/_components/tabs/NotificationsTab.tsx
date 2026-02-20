@@ -12,7 +12,7 @@ function Card({
 }) {
   return (
     <div
-      className={`rounded-xl border border-gray-200 bg-primary p-6 ${className}`}
+      className={`rounded-xl border border-gray-200 bg-primary p-6 dark:border-gray-800 dark:bg-gray-900 ${className}`}
     >
       {children}
     </div>
@@ -37,17 +37,21 @@ function NotificationSwitch({
       className="group flex cursor-pointer items-start justify-between gap-4 outline-none data-focus-visible:rounded data-focus-visible:ring-2 data-focus-visible:ring-primary data-focus-visible:ring-offset-2"
     >
       <div className="min-w-0">
-        <span className="text-sm font-medium text-primary">{label}</span>
+        <span className="text-sm font-medium text-primary dark:text-white">
+          {label}
+        </span>
         {description && (
-          <p className="mt-0.5 text-xs text-tertiary">{description}</p>
+          <p className="mt-0.5 text-xs text-tertiary dark:text-gray-500">
+            {description}
+          </p>
         )}
       </div>
       <span
-        className="relative inline-flex h-5 w-9 shrink-0 rounded-full border border-gray-300 bg-gray-100 transition-colors group-selected:border-black group-selected:bg-black"
+        className="relative inline-flex h-5 w-9 shrink-0 rounded-full border border-gray-300 bg-gray-100 transition-colors group-selected:border-black group-selected:bg-black dark:border-gray-800 dark:bg-gray-900 dark:group-selected:border-gray-800 dark:group-selected:bg-gray-900"
         aria-hidden
       >
         <span
-          className={`absolute top-0.5 size-4 rounded-full bg-white shadow-sm ring-1 ring-gray-200 transition-all ${
+          className={`absolute top-0.5 size-4 rounded-full bg-white shadow-sm ring-1 ring-gray-200 transition-all dark:ring-gray-800 ${
             isSelected ? "left-4" : "left-0.5"
           }`}
         />
@@ -115,10 +119,10 @@ export function NotificationsTab() {
       <div className="grid gap-6 lg:grid-cols-2">
         <Card>
           <div className="flex flex-col gap-4">
-            <h3 className="text-base font-semibold text-primary">
+            <h3 className="text-base font-semibold text-primary dark:text-white">
               Email notifications
             </h3>
-            <p className="text-xs text-tertiary">
+            <p className="text-xs text-tertiary dark:text-gray-500">
               Receive notifications about your account and orders via email.
             </p>
             <NotificationSwitch
@@ -132,10 +136,10 @@ export function NotificationsTab() {
 
         <Card>
           <div className="flex flex-col gap-4">
-            <h3 className="text-base font-semibold text-primary">
+            <h3 className="text-base font-semibold text-primary dark:text-white">
               In-app notifications
             </h3>
-            <p className="text-xs text-tertiary">
+            <p className="text-xs text-tertiary dark:text-gray-500">
               Show notifications in the dashboard when you’re signed in.
             </p>
             <NotificationSwitch
@@ -150,34 +154,40 @@ export function NotificationsTab() {
 
       <Card>
         <div className="flex flex-col gap-4">
-          <h3 className="text-base font-semibold text-primary">
+          <h3 className="text-base font-semibold text-primary dark:text-white">
             Notification preferences
           </h3>
-          <p className="text-xs text-tertiary">
+          <p className="text-xs text-tertiary dark:text-gray-500">
             Choose which notifications you want to receive and how.
           </p>
-          <div className="divide-y divide-gray-200">
+          <div className="divide-y divide-gray-200 dark:divide-gray-800 dark:bg-gray-900">
             {NOTIFICATION_CATEGORIES.map(({ id, label, hint }) => (
               <div
                 key={id}
                 className="flex flex-wrap items-center justify-between gap-4 py-4 first:pt-0 last:pb-0"
               >
                 <div className="min-w-0">
-                  <p className="text-sm font-medium text-primary">{label}</p>
-                  <p className="mt-0.5 text-xs text-tertiary">{hint}</p>
+                  <p className="text-sm font-medium text-primary dark:text-white">
+                    {label}
+                  </p>
+                  <p className="mt-0.5 text-xs text-tertiary dark:text-gray-500">
+                    {hint}
+                  </p>
                 </div>
                 <div className="flex items-center gap-8">
                   <label className="flex cursor-pointer items-center gap-2">
-                    <span className="text-xs text-tertiary">Email</span>
+                    <span className="text-xs text-tertiary dark:text-gray-500">
+                      Email
+                    </span>
                     <Switch
                       isSelected={categories[id].email}
                       onChange={(v) => setCategory(id, "email", v)}
                       isDisabled={!emailEnabled}
                       className="group flex cursor-pointer outline-none disabled:cursor-not-allowed disabled:opacity-50 data-focus-visible:rounded data-focus-visible:ring-2 data-focus-visible:ring-primary data-focus-visible:ring-offset-2"
                     >
-                      <span className="relative inline-flex h-5 w-9 shrink-0 rounded-full border border-gray-300 bg-gray-100 transition-colors group-selected:border-black group-selected:bg-black">
+                      <span className="relative inline-flex h-5 w-9 shrink-0 rounded-full border border-gray-300 bg-gray-100 transition-colors group-selected:border-black group-selected:bg-black dark:border-gray-800 dark:bg-gray-900 dark:group-selected:border-gray-800 dark:group-selected:bg-gray-900">
                         <span
-                          className={`absolute top-0.5 size-4 rounded-full bg-white shadow-sm ring-1 ring-gray-200 transition-all ${
+                          className={`absolute top-0.5 size-4 rounded-full bg-white shadow-sm ring-1 ring-gray-200 transition-all dark:ring-gray-800 ${
                             categories[id].email ? "left-4" : "left-0.5"
                           }`}
                         />
@@ -185,16 +195,18 @@ export function NotificationsTab() {
                     </Switch>
                   </label>
                   <label className="flex cursor-pointer items-center gap-2">
-                    <span className="text-xs text-tertiary">In-app</span>
+                    <span className="text-xs text-tertiary dark:text-gray-500">
+                      In-app
+                    </span>
                     <Switch
                       isSelected={categories[id].inApp}
                       onChange={(v) => setCategory(id, "inApp", v)}
                       isDisabled={!inAppEnabled}
                       className="group flex cursor-pointer outline-none disabled:cursor-not-allowed disabled:opacity-50 data-focus-visible:rounded data-focus-visible:ring-2 data-focus-visible:ring-primary data-focus-visible:ring-offset-2"
                     >
-                      <span className="relative inline-flex h-5 w-9 shrink-0 rounded-full border border-gray-300 bg-gray-100 transition-colors group-selected:border-black group-selected:bg-black">
+                      <span className="relative inline-flex h-5 w-9 shrink-0 rounded-full border border-gray-300 bg-gray-100 transition-colors group-selected:border-black group-selected:bg-black dark:border-gray-800 dark:bg-gray-900 dark:group-selected:border-gray-800 dark:group-selected:bg-gray-900">
                         <span
-                          className={`absolute top-0.5 size-4 rounded-full bg-white shadow-sm ring-1 ring-gray-200 transition-all ${
+                          className={`absolute top-0.5 size-4 rounded-full bg-white shadow-sm ring-1 ring-gray-200 transition-all dark:ring-gray-800 dark:bg-gray-900 dark:text-gray-500 ${
                             categories[id].inApp ? "left-4" : "left-0.5"
                           }`}
                         />

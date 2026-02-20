@@ -88,7 +88,7 @@ function Card({
 }) {
   return (
     <div
-      className={`rounded-xl border border-gray-200 bg-primary p-6 ${className}`}
+      className={`rounded-xl border border-gray-200 bg-primary p-6 dark:border-gray-800 dark:bg-gray-900 ${className}`}
     >
       {children}
     </div>
@@ -103,19 +103,21 @@ export function BillingTab() {
         <Card>
           <div className="flex flex-col gap-3">
             <div className="flex items-center justify-between gap-2">
-              <h3 className="text-base font-semibold text-primary">
+              <h3 className="text-base font-semibold text-primary dark:text-white">
                 Premium plan
               </h3>
               <BadgeWithDot type="pill-color" color="success" size="sm">
                 Active
               </BadgeWithDot>
             </div>
-            <p className="text-xs text-tertiary">
+            <p className="text-xs text-tertiary dark:text-gray-500">
               Our most popular plan for small teams.
             </p>
             <p className="text-xl font-semibold text-primary">$40 per month</p>
             <div>
-              <p className="text-xs font-medium text-primary">8 of 10 seats</p>
+              <p className="text-xs font-medium text-primary dark:text-white">
+                8 of 10 seats
+              </p>
               <div className="mt-1.5 flex items-center gap-1">
                 {SEAT_AVATARS.map((src, i) => (
                   <Avatar
@@ -125,12 +127,12 @@ export function BillingTab() {
                     className="size-7 shrink-0"
                   />
                 ))}
-                <span className="flex size-7 shrink-0 items-center justify-center rounded-full border border-dashed border-gray-300 text-tertiary text-xs">
+                <span className="flex size-7 shrink-0 items-center justify-center rounded-full border border-dashed border-gray-300 text-tertiary dark:text-gray-500 text-xs">
                   +
                 </span>
               </div>
             </div>
-            <Button className="mt-1 inline-flex w-fit cursor-pointer items-center justify-center rounded-lg border border-gray-300 bg-primary px-3 py-1.5 text-xs font-medium text-primary shadow-xs outline-none transition-colors hover:bg-secondary focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+            <Button className="mt-1 inline-flex w-fit cursor-pointer items-center justify-center rounded-lg border border-gray-300 bg-primary px-3 py-1.5 text-xs font-medium text-primary shadow-xs outline-none transition-colors hover:bg-secondary focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 dark:border-gray-800 dark:bg-gray-900 dark:text-gray-500">
               Upgrade plan
             </Button>
           </div>
@@ -138,28 +140,28 @@ export function BillingTab() {
 
         <Card>
           <div className="flex flex-col gap-3">
-            <h3 className="text-base font-semibold text-primary">
+            <h3 className="text-base font-semibold text-primary dark:text-white">
               Payment method
             </h3>
-            <p className="text-xs text-tertiary">
+            <p className="text-xs text-tertiary dark:text-gray-500">
               Set up automated monthly payments.
             </p>
             <div className="flex items-center gap-3 rounded-lg border border-gray-200 bg-secondary p-3">
-              <div className="flex size-9 items-center justify-center rounded-md bg-white px-2 text-primary shadow-xs">
+              <div className="flex size-9 items-center justify-center rounded-md bg-white px-2 text-primary shadow-xs dark:bg-gray-900 dark:text-gray-500">
                 <StripeLogo className="h-5 w-14" />
               </div>
               <div className="min-w-0 flex-1">
-                <p className="text-sm font-medium text-primary">
+                <p className="text-sm font-medium text-primary dark:text-white">
                   Stripe Connect
                 </p>
-                <p className="truncate text-xs text-tertiary">
+                <p className="truncate text-xs text-tertiary dark:text-gray-500">
                   lilyrose@untitledui.com
                 </p>
               </div>
             </div>
             <Link
               href="#"
-              className="inline-flex w-fit items-center gap-1 text-xs font-medium text-primary outline-none hover:underline focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+              className="inline-flex w-fit items-center gap-1 text-xs font-medium text-primary outline-none dark:text-gray-500 dark:hover:text-white hover:underline focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
             >
               Go to dashboard
               <ArrowRight className="size-3.5 shrink-0" aria-hidden />
@@ -172,13 +174,17 @@ export function BillingTab() {
       <Card>
         <div className="flex flex-col gap-3">
           <div className="flex items-center justify-between gap-2">
-            <h3 className="text-base font-semibold text-primary">Bandwidth</h3>
+            <h3 className="text-base font-semibold text-primary dark:text-white">
+              Bandwidth
+            </h3>
             <span className="text-xs font-medium text-success-600">12%</span>
           </div>
-          <p className="text-xs text-tertiary">
+          <p className="text-xs text-tertiary dark:text-gray-500">
             You&apos;ve used 30% of your available bandwidth.
           </p>
-          <p className="text-xl font-semibold text-primary">60.2GB of 200GB</p>
+          <p className="text-xl font-semibold text-primary dark:text-white">
+            60.2GB of 200GB
+          </p>
           <div className="mt-1.5 h-[200px] min-h-[200px] w-full">
             <ResponsiveContainer width="100%" height="100%">
               <AreaChart
@@ -214,16 +220,23 @@ export function BillingTab() {
                   dataKey="date"
                   axisLine={false}
                   tickLine={false}
-                  tick={{ fontSize: 11, fill: "var(--color-gray-500)" }}
+                  tick={{
+                    fontSize: 11,
+                    fill: "var(--color-gray-500) dark:text-gray-500",
+                  }}
                 />
                 <YAxis
                   axisLine={false}
                   tickLine={false}
-                  tick={{ fontSize: 11, fill: "var(--color-gray-500)" }}
+                  tick={{
+                    fontSize: 11,
+                    fill: "var(--color-gray-500) dark:text-gray-500",
+                  }}
                 />
                 <Tooltip
                   contentStyle={{
-                    backgroundColor: "var(--color-bg-primary)",
+                    backgroundColor:
+                      "var(--color-bg-primary) dark:bg-gray-900 dark:text-gray-500",
                     border: "1px solid var(--color-gray-200)",
                     borderRadius: "8px",
                     boxShadow: "var(--shadow-md)",
@@ -252,7 +265,7 @@ export function BillingTab() {
       {/* Billing history */}
       <Card>
         <div className="flex flex-col gap-3">
-          <h3 className="text-base font-semibold text-primary">
+          <h3 className="text-base font-semibold text-primary dark:text-white">
             Billing history
           </h3>
           <Input
@@ -261,43 +274,47 @@ export function BillingTab() {
             aria-label="Search invoices"
             size="sm"
           />
-          <div className="overflow-x-auto rounded-lg border border-gray-200">
+          <div className="overflow-x-auto rounded-lg border border-gray-200 dark:border-gray-800">
             <table className="w-full min-w-[400px] text-left text-xs">
               <thead>
-                <tr className="border-b border-gray-200 bg-secondary">
+                <tr className="border-b border-gray-200 bg-secondary dark:border-gray-800 dark:bg-gray-900">
                   <th className="w-8 px-3 py-2">
                     <input
                       type="checkbox"
-                      className="rounded border-gray-300"
+                      className="rounded border-gray-300 dark:border-gray-800"
                       aria-label="Select all"
                     />
                   </th>
-                  <th className="px-3 py-2 font-medium text-primary">
+                  <th className="px-3 py-2 font-medium text-primary dark:text-white">
                     Invoice
                   </th>
-                  <th className="px-3 py-2 font-medium text-primary">
+                  <th className="px-3 py-2 font-medium text-primary dark:text-white">
                     Billing date
                   </th>
-                  <th className="px-3 py-2 font-medium text-primary">Plan</th>
+                  <th className="px-3 py-2 font-medium text-primary dark:text-white">
+                    Plan
+                  </th>
                 </tr>
               </thead>
               <tbody>
                 {BILLING_HISTORY.map((row) => (
                   <tr
                     key={row.id}
-                    className="border-b border-gray-100 last:border-0 hover:bg-secondary/50"
+                    className="border-b border-gray-100 last:border-0 hover:bg-secondary/50 dark:border-gray-800 dark:hover:bg-gray-800"
                   >
                     <td className="px-3 py-2">
                       <input
                         type="checkbox"
-                        className="rounded border-gray-300"
+                        className="rounded border-gray-300 dark:border-gray-800"
                         aria-label={`Select ${row.name}`}
                       />
                     </td>
-                    <td className="px-3 py-2 font-medium text-primary">
+                    <td className="px-3 py-2 font-medium text-primary dark:text-white">
                       {row.name}
                     </td>
-                    <td className="px-3 py-2 text-tertiary">{row.date}</td>
+                    <td className="px-3 py-2 text-tertiary dark:text-gray-500">
+                      {row.date}
+                    </td>
                     <td className="px-3 py-2">
                       <BadgeWithDot type="pill-color" color="success" size="sm">
                         {row.plan}

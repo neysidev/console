@@ -31,7 +31,9 @@ export function SiteTraffic() {
       {/* Header */}
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex items-center gap-2">
-          <h2 className="text-lg font-semibold text-primary">Site traffic</h2>
+          <h2 className="text-lg font-semibold text-primary dark:text-white">
+            Site traffic
+          </h2>
           <span className="text-sm font-medium text-utility-success-600">
             +104%
           </span>
@@ -42,23 +44,28 @@ export function SiteTraffic() {
           <ButtonGroupRoot
             aria-label="Time range"
             selectedKeys={new Set([range])}
+            className="dark:bg-gray-900 dark:text-gray-500 dark:border-gray-800"
             onSelectionChange={(keys) => {
               const key = Array.from(keys)[0];
               if (key != null) setRange(key as SiteTrafficRange);
             }}
           >
             {RANGE_OPTIONS.map((key) => (
-              <ButtonGroupItem key={key} id={key}>
+              <ButtonGroupItem
+                key={key}
+                id={key}
+                className="dark:bg-gray-900 dark:text-gray-500 dark:hover:bg-black dark:hover:text-white"
+              >
                 {MOCK_SITE_TRAFFIC_RANGE_LABELS[key]}
               </ButtonGroupItem>
             ))}
           </ButtonGroupRoot>
           <button
             type="button"
-            className="inline-flex h-9 items-center justify-center gap-2 rounded-lg border border-gray-200 bg-primary px-3 text-sm font-medium text-gray-700 shadow-xs hover:bg-gray-50"
+            className="inline-flex h-9 items-center justify-center gap-2 rounded-lg border border-gray-200 bg-primary px-3 text-sm font-medium text-gray-700 shadow-xs hover:bg-gray-50 dark:border-gray-800 dark:bg-gray-900 dark:text-gray-500 dark:hover:bg-gray-800"
             aria-label="Open filters"
           >
-            <FilterLines className="size-5 text-gray-500" />
+            <FilterLines className="size-5 text-gray-500 dark:text-white" />
             Filter
           </button>
         </div>

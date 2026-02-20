@@ -5,7 +5,7 @@ import { ChevronRight } from "@untitledui/icons";
 export function BreadcrumbSeparator() {
   return (
     <span aria-hidden className="select-none">
-      <ChevronRight className="size-3.5 text-gray-400" />
+      <ChevronRight className="size-3.5 text-gray-400 dark:text-gray-600" />
     </span>
   );
 }

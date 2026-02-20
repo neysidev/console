@@ -6,6 +6,7 @@ import { Menu01, Sun, Moon01 } from "@untitledui/icons";
 
 export const Header = observer(function Header() {
   const { uiStore } = useStores();
+  const isDark = uiStore.resolvedTheme === "dark";
 
   return (
     <header className="flex h-14 shrink-0 items-center justify-between border-b border-border-secondary px-4">
@@ -21,18 +22,10 @@ export const Header = observer(function Header() {
         <button
           type="button"
           onClick={() => uiStore.toggleTheme()}
-          className="rounded-lg p-2 text-[var(--color-fg-secondary)] hover:bg-[var(--color-bg-secondary)] hover:text-[var(--color-fg-primary)]"
-          aria-label={
-            uiStore.theme === "light"
-              ? "Switch to dark mode"
-              : "Switch to light mode"
-          }
+          className="rounded-lg p-2 text-(--color-fg-secondary) hover:bg-(--color-bg-secondary) hover:text-(--color-fg-primary)"
+          aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
         >
-          {uiStore.theme === "light" ? (
-            <Moon01 className="size-5" />
-          ) : (
-            <Sun className="size-5" />
-          )}
+          {isDark ? <Sun className="size-5" /> : <Moon01 className="size-5" />}
         </button>
       </div>
     </header>

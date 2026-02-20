@@ -13,7 +13,7 @@ export function BreadcrumbUser({ username, avatar }: BreadcrumbUserProps) {
   return (
     <Link
       href="/my-account"
-      className="flex items-center gap-2 rounded-md px-1 py-0.5 transition-colors hover:bg-gray-50 hover:text-primary"
+      className="flex items-center gap-2 rounded-md px-1 py-0.5 transition-colors hover:bg-gray-50 hover:text-primary dark:text-gray-500 dark:hover:bg-gray-900 dark:hover:text-white"
     >
       <Avatar src={avatar} shape="rounded">
         <User01 className="size-3.5" />

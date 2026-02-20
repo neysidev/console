@@ -13,7 +13,7 @@ function Card({
 }) {
   return (
     <div
-      className={`rounded-xl border border-gray-200 bg-primary p-6 ${className}`}
+      className={`rounded-xl border border-gray-200 bg-primary p-6 dark:border-gray-800 dark:bg-gray-900 ${className}`}
     >
       {children}
     </div>

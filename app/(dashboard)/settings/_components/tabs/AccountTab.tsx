@@ -12,7 +12,7 @@ function Card({
 }) {
   return (
     <div
-      className={`rounded-xl border border-gray-200 bg-primary p-6 ${className}`}
+      className={`rounded-xl border border-gray-200 bg-primary p-6 dark:border-gray-800 dark:bg-gray-900 ${className}`}
     >
       {children}
     </div>
@@ -91,7 +91,7 @@ export function AccountTab() {
 
       <Card className="border-utility-error-200">
         <div className="flex flex-col gap-4">
-          <h3 className="text-base font-semibold text-utility-error-700">
+          <h3 className="text-base font-semibold text-utility-error-700 dark:text-utility-error-300">
             Danger zone
           </h3>
           <p className="text-xs text-tertiary">

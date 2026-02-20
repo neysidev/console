@@ -33,7 +33,7 @@ export default function RootLayout({
       className={`${inter.variable} scroll-smooth`}
       suppressHydrationWarning
     >
-      <body className="bg-white text-primary antialiased">
+      <body className="bg-bg-primary text-primary antialiased">
         <NextTopLoader color="black" />
         <RouteProvider>
           <StoreProvider>

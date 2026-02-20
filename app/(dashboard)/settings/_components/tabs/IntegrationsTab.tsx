@@ -13,7 +13,7 @@ function Card({
 }) {
   return (
     <div
-      className={`rounded-xl border border-gray-200 bg-primary p-6 ${className}`}
+      className={`rounded-xl border border-gray-200 bg-primary p-6 dark:border-gray-800 dark:bg-gray-900 ${className}`}
     >
       {children}
     </div>
@@ -52,13 +52,13 @@ export function IntegrationsTab() {
     <div className="space-y-8">
       <Card>
         <div className="flex flex-col gap-4">
-          <h3 className="text-base font-semibold text-primary">
+          <h3 className="text-base font-semibold text-primary dark:text-white">
             Connected apps
           </h3>
           <p className="text-xs text-tertiary">
             Manage third-party apps and services linked to your account.
           </p>
-          <div className="flex flex-col divide-y divide-gray-200">
+          <div className="flex flex-col divide-y divide-gray-200 dark:divide-gray-800">
             {INTEGRATIONS.map((app) => (
               <div
                 key={app.id}
@@ -66,7 +66,7 @@ export function IntegrationsTab() {
               >
                 <div className="min-w-0">
                   <div className="flex items-center gap-2">
-                    <p className="text-sm font-medium text-primary">
+                    <p className="text-sm font-medium text-primary dark:text-white">
                       {app.name}
                     </p>
                     {app.connected && (
@@ -75,7 +75,7 @@ export function IntegrationsTab() {
                       </BadgeWithDot>
                     )}
                   </div>
-                  <p className="mt-0.5 text-xs text-tertiary">
+                  <p className="mt-0.5 text-xs text-tertiary dark:text-gray-500">
                     {app.description}
                   </p>
                 </div>

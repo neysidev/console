@@ -36,11 +36,13 @@ export function StatCard({ label, value, change, changeType }: StatCardProps) {
   const changeNum = parsePercent(change);
 
   return (
-    <div className="rounded-xl border border-gray-200 bg-primary p-4 shadow-xs">
-      <h3 className="text-xs font-medium text-gray-700">{label}</h3>
+    <div className="rounded-xl border border-gray-200 bg-primary p-4 shadow-xs dark:border-gray-800 dark:bg-gray-900">
+      <h3 className="text-xs font-medium text-gray-700 dark:text-gray-500">
+        {label}
+      </h3>
 
       <div className="flex items-end justify-between">
-        <div className="mt-4 text-xl font-semibold text-primary">
+        <div className="mt-4 text-xl font-semibold text-primary dark:text-white">
           {format === "currency" ? (
             <AnimatedNumber
               value={num}

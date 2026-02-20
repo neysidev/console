@@ -39,21 +39,25 @@ const TAB_PANELS: Record<TabId, React.ReactNode> = {
 };
 
 export function SettingsTabs() {
-  const [selectedTab, setSelectedTab] = useState<TabId>("billing");
+  const [selectedTab, setSelectedTab] = useState<TabId>("account");
 
   return (
     <div className="flex flex-col gap-8">
       <ButtonGroupRoot
         aria-label="Settings sections"
         selectedKeys={new Set([selectedTab])}
+        className="w-max dark:bg-gray-900 dark:text-gray-500 dark:border-gray-800"
         onSelectionChange={(keys) => {
           const key = Array.from(keys)[0];
           if (key != null) setSelectedTab(key as TabId);
         }}
-        className="w-max"
       >
         {TAB_ITEMS.map((item) => (
-          <ButtonGroupItem key={item.id} id={item.id}>
+          <ButtonGroupItem
+            key={item.id}
+            id={item.id}
+            className="dark:bg-gray-900 dark:text-gray-500 dark:border-gray-800 dark:hover:bg-gray-800 dark:hover:text-white"
+          >
             {item.label}
           </ButtonGroupItem>
         ))}

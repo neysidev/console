@@ -96,7 +96,9 @@ export function DashboardTeam({ users }: DashboardTeamProps) {
   return (
     <section>
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-        <h2 className="text-lg font-semibold text-primary">Recently active</h2>
+        <h2 className="text-lg font-semibold text-primary dark:text-white">
+          Recently active
+        </h2>
         <div className="w-full sm:w-72">
           <Input
             type="search"
@@ -111,7 +113,7 @@ export function DashboardTeam({ users }: DashboardTeamProps) {
 
       <TableCard.Root size="md" className="mt-4">
         {selectedCount > 0 && (
-          <div className="border-b border-border-secondary bg-secondary px-6 py-2 text-sm font-medium text-primary">
+          <div className="border-b border-border-secondary bg-secondary px-6 py-2 text-sm font-medium text-primary dark:border-gray-800 dark:bg-gray-900 dark:text-gray-500">
             {selectedCount} selected
           </div>
         )}
@@ -153,7 +155,7 @@ export function DashboardTeam({ users }: DashboardTeamProps) {
                   >
                     {column.id === "user" && (
                       <div className="flex items-center gap-3">
-                        <span className="relative flex size-10 shrink-0 overflow-hidden rounded-full bg-secondary">
+                        <span className="relative flex size-10 shrink-0 overflow-hidden rounded-full bg-secondary dark:bg-gray-800">
                           <Image
                             src={user.avatar}
                             alt=""
@@ -163,10 +165,10 @@ export function DashboardTeam({ users }: DashboardTeamProps) {
                           />
                         </span>
                         <div className="min-w-0">
-                          <p className="truncate text-sm font-medium text-primary">
+                          <p className="truncate text-sm font-medium text-primary dark:text-white">
                             {user.name}
                           </p>
-                          <p className="truncate text-sm text-tertiary">
+                          <p className="truncate text-sm text-tertiary dark:text-gray-500">
                             {user.email}
                           </p>
                         </div>
@@ -181,12 +183,12 @@ export function DashboardTeam({ users }: DashboardTeamProps) {
                       </BadgeWithDot>
                     )}
                     {column.id === "lastActive" && (
-                      <span className="text-sm text-primary">
+                      <span className="text-sm text-primary dark:text-white">
                         {formatTableDate(user.lastActive)}
                       </span>
                     )}
                     {column.id === "dateAdded" && (
-                      <span className="text-sm text-primary">
+                      <span className="text-sm text-primary dark:text-white">
                         {formatTableDate(user.dateAdded)}
                       </span>
                     )}

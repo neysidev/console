@@ -60,17 +60,24 @@ function DocCard({
   return (
     <Link
       href={href}
-      className="block rounded-xl border border-gray-200 bg-primary p-6 text-left transition-colors hover:border-gray-300 hover:bg-secondary focus-visible:outline focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+      className="block rounded-xl border border-gray-200 bg-primary p-6 text-left transition-colors hover:border-gray-300 hover:bg-secondary focus-visible:outline focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 dark:border-gray-800 dark:bg-gray-900 dark:hover:border-gray-700 dark:hover:bg-gray-800"
     >
       <div className="flex items-start gap-4">
-        <div className="flex size-10 shrink-0 items-center justify-center rounded-lg border border-gray-200 bg-primary">
+        <div className="flex size-10 shrink-0 items-center justify-center rounded-lg border border-gray-200 bg-primary dark:border-gray-800 dark:bg-gray-900 dark:text-gray-500">
           <Icon className="size-5 text-secondary" aria-hidden />
         </div>
         <div className="min-w-0 flex-1">
-          <h2 className="text-base font-semibold text-primary">{title}</h2>
-          <p className="mt-1 text-sm text-tertiary">{description}</p>
+          <h2 className="text-base font-semibold text-primary dark:text-white">
+            {title}
+          </h2>
+          <p className="mt-1 text-sm text-tertiary dark:text-gray-500">
+            {description}
+          </p>
         </div>
-        <ArrowUpRight className="size-5 shrink-0 text-tertiary" aria-hidden />
+        <ArrowUpRight
+          className="size-5 shrink-0 text-tertiary dark:text-gray-500"
+          aria-hidden
+        />
       </div>
     </Link>
   );

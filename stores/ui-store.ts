@@ -8,7 +8,8 @@ const THEME_STORAGE_KEY = "theme";
 function getStoredTheme(): Theme {
   if (typeof window === "undefined") return "light";
   const stored = localStorage.getItem(THEME_STORAGE_KEY);
-  if (stored === "light" || stored === "dark") return stored;
+  if (stored === "light" || stored === "dark" || stored === "system")
+    return stored;
   return "light";
 }
 
@@ -31,7 +32,16 @@ export class UIStore {
   }
 
   toggleTheme() {
-    this.setTheme(this.theme === "light" ? "dark" : "light");
+    if (this.theme === "light") this.setTheme("dark");
+    else if (this.theme === "dark") this.setTheme("light");
+    else this.setTheme(this.resolvedTheme === "light" ? "dark" : "light");
+  }
+
+  /** Resolved theme for display (light/dark); when theme is "system", this reflects OS preference. */
+  resolvedTheme: "light" | "dark" = "light";
+
+  setResolvedTheme(resolved: "light" | "dark") {
+    this.resolvedTheme = resolved;
   }
 
   toggleSidebar() {

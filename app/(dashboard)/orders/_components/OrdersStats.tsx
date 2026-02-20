@@ -19,7 +19,7 @@ export function OrdersStats({ orders }: OrdersStatsProps) {
   return (
     <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
       <div className={statCardClass}>
-        <p className="text-xs font-medium uppercase tracking-wide text-tertiary">
+        <p className="text-xs font-medium uppercase tracking-wide text-tertiary dark:text-gray-500">
           Total revenue
         </p>
         <div className="mt-3 flex items-end justify-between gap-2">

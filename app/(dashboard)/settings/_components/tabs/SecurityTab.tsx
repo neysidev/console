@@ -14,7 +14,7 @@ function Card({
 }) {
   return (
     <div
-      className={`rounded-xl border border-gray-200 bg-primary p-6 ${className}`}
+      className={`rounded-xl border border-gray-200 bg-primary p-6 dark:border-gray-800 dark:bg-gray-900 ${className}`}
     >
       {children}
     </div>
@@ -89,14 +89,14 @@ export function SecurityTab() {
             <Switch
               isSelected={twoFactorEnabled}
               onChange={setTwoFactorEnabled}
-              className="group flex cursor-pointer shrink-0 outline-none data-focus-visible:rounded data-focus-visible:ring-2 data-focus-visible:ring-primary data-focus-visible:ring-offset-2"
+              className="group flex cursor-pointer shrink-0 outline-none data-focus-visible:rounded data-focus-visible:ring-2 data-focus-visible:ring-primary data-focus-visible:ring-offset-2 dark:border-gray-800 dark:bg-gray-900 dark:group-selected:border-gray-800 dark:group-selected:bg-gray-900"
             >
               <span
-                className="relative inline-flex h-5 w-9 shrink-0 rounded-full border border-gray-300 bg-gray-100 transition-colors group-selected:border-black group-selected:bg-black"
+                className="relative inline-flex h-5 w-9 shrink-0 rounded-full border border-gray-300 bg-gray-100 transition-colors group-selected:border-black group-selected:bg-black dark:border-gray-800 dark:bg-gray-900 dark:group-selected:border-gray-800 dark:group-selected:bg-gray-900"
                 aria-hidden
               >
                 <span
-                  className={`absolute top-0.5 size-4 rounded-full bg-white shadow-sm ring-1 ring-gray-200 transition-all ${
+                  className={`absolute top-0.5 size-4 rounded-full bg-white shadow-sm ring-1 ring-gray-200 transition-all dark:ring-gray-800 ${
                     twoFactorEnabled ? "left-4" : "left-0.5"
                   }`}
                 />
@@ -108,16 +108,16 @@ export function SecurityTab() {
 
       <Card>
         <div className="flex flex-col gap-4">
-          <h3 className="text-base font-semibold text-primary">
+          <h3 className="text-base font-semibold text-primary dark:text-white">
             Active sessions
           </h3>
-          <p className="text-xs text-tertiary">
+          <p className="text-xs text-tertiary dark:text-gray-500">
             Manage devices where you’re currently signed in.
           </p>
-          <div className="overflow-x-auto rounded-lg border border-gray-200">
+          <div className="overflow-x-auto rounded-lg border border-gray-200 dark:border-gray-800">
             <table className="w-full min-w-[400px] text-left text-xs">
               <thead>
-                <tr className="border-b border-gray-200 bg-secondary">
+                <tr className="border-b border-gray-200 bg-secondary dark:border-gray-800 dark:bg-gray-900">
                   <th className="px-3 py-2 font-medium text-primary">Device</th>
                   <th className="px-3 py-2 font-medium text-primary">
                     Location
@@ -132,7 +132,7 @@ export function SecurityTab() {
                 {ACTIVE_SESSIONS.map((session) => (
                   <tr
                     key={session.id}
-                    className="border-b border-gray-100 last:border-0 hover:bg-secondary/50"
+                    className="border-b border-gray-100 last:border-0 hover:bg-secondary/50 dark:border-gray-800 dark:hover:bg-gray-800"
                   >
                     <td className="px-3 py-2 font-medium text-primary">
                       {session.device}
